@@ -67,8 +67,9 @@ const onDrop = (event, dest) => {
 <template>
   <nav>
     <ul>
-      <button class="btn-crear-tablero" @click.prevent="handleNewBoard">Crear un tablero </button>
-      
+      <button class="btn-crear-tablero" @click.prevent="handleNewBoard">
+        Crear un tablero
+      </button>
     </ul>
   </nav>
   <div class="boards-container">
@@ -102,13 +103,11 @@ const onDrop = (event, dest) => {
 </template>
 
 <style scoped>
-
-nav ul{
+nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-
 }
 
 nav ul a {
@@ -122,13 +121,17 @@ a {
 }
 .boards {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 .board {
   background-color: #efefef;
   padding: 1rem;
   border-radius: 10px;
   color: black;
+
 }
 .item {
   background-color: #a2ecb2;
@@ -140,7 +143,7 @@ a {
   flex-direction: column;
   gap: 10px;
 }
-.btn-crear-tablero{
+.btn-crear-tablero {
   padding: 0.7rem;
   font-size: 18px;
   width: 100%;
@@ -151,15 +154,26 @@ a {
   margin-bottom: 2rem;
   cursor: pointer;
 }
-.btn-crear-tablero:hover{
+.btn-crear-tablero:hover {
   background-color: #345d4a;
 }
-.nombre-tablero{
+.nombre-tablero {
   text-align: center;
   padding-top: 0.5rem;
   padding-bottom: 2rem;
   font-size: 18px;
   font-weight: bold;
   text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+  .boards {
+    gap: 5px; /* Reduce el espacio entre tableros en pantallas más pequeñas */
+  }
+
+  .board {
+    min-width: 150px; /* Ajusta el ancho mínimo en pantallas pequeñas si es necesario */
+    padding: 0.5rem; /* Ajusta el padding en pantallas pequeñas para optimizar el espacio */
+  }
 }
 </style>
