@@ -1,5 +1,6 @@
 <script setup>
 import {ref,defineEmits} from 'vue'
+ 
 const text = ref('')
 const emits = defineEmits(['onNewItem'])
 const handleSubmit = () =>{
@@ -12,19 +13,25 @@ const handleSubmit = () =>{
 </script>
 <template>
     <form @submit.prevent="handleSubmit">
-        <input class="input-new" type="text" v-model="text" placeholder="Nuevo Item">
+        <input class="input-new" type="text" v-model="text" placeholder="Introducir Item">
     </form>
+    <p class="input-mensaje">Presiona Enter para agrar el item.</p>
 </template>
 <style scoped>
+.input-mensaje{
+    font-size: 13px;
+}
 .input-new{
-    height: 25px;
-    margin-bottom: 10px;
+    height: 40px;
+   
     margin-top: 5px;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-size: 16px;
-    border: 1px solid rgb(207, 207, 207);
+    border: none;
     border-radius: 5px;
-    background-color: #dddddc;
+    background-color: #fff3ca;
+    color: black;
+    padding-left: 1rem
 }
 </style>
 

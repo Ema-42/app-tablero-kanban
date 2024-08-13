@@ -67,7 +67,8 @@ const onDrop = (event, dest) => {
 <template>
   <nav>
     <ul>
-      <li><a href="#" @click.prevent="handleNewBoard">Crear Tablero</a></li>
+      <button class="btn-crear-tablero" @click.prevent="handleNewBoard">Crear un tablero </button>
+      
     </ul>
   </nav>
   <div class="boards-container">
@@ -80,7 +81,7 @@ const onDrop = (event, dest) => {
         v-for="board in boards"
         :key="board.id"
       >
-        <div>
+        <div class="nombre-tablero">
           {{ board.name }}
         </div>
         <InputNew @onNewItem="(text) => handleNewItem(text, board)"></InputNew>
@@ -101,10 +102,7 @@ const onDrop = (event, dest) => {
 </template>
 
 <style scoped>
-nav{
-  background-color: #2b4d3d;
-  margin-bottom: 10px;
-}
+
 nav ul{
   list-style: none;
   padding: 0;
@@ -128,8 +126,9 @@ a {
 }
 .board {
   background-color: #efefef;
-  padding: 10px;
+  padding: 1rem;
   border-radius: 10px;
+  color: black;
 }
 .item {
   background-color: #a2ecb2;
@@ -140,5 +139,27 @@ a {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.btn-crear-tablero{
+  padding: 0.7rem;
+  font-size: 18px;
+  width: 100%;
+  background-color: #2b4d3d;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+.btn-crear-tablero:hover{
+  background-color: #345d4a;
+}
+.nombre-tablero{
+  text-align: center;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 </style>
